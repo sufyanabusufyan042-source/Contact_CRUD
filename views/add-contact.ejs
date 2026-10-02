@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Contact</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Add New Contact</h1>
+        <form action="/add-contact" method="POST" class="contact-form">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" placeholder="Enter name" required>
+
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="Enter email" required>
+
+            <label for="phone">Phone</label>
+            <input type="text" name="phone" id="phone" placeholder="Enter phone number" required>
+
+            <label for="address">Address</label>
+            <textarea name="address" id="address" placeholder="Enter address"></textarea>
+
+            <button type="submit" class="btn btn-primary">Save Contact</button>
+        </form>
+        <a href="/" class="back-link">&larr; Back to Home</a>
+    </div>
+</body>
+</html>

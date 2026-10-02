@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Contact</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Update Contact</h1>
+        <form action="/update-contact/<%= contact._id %>" method="POST" class="contact-form">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" value="<%= contact.name %>" required>
+
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" value="<%= contact.email %>" required>
+
+            <label for="phone">Phone</label>
+            <input type="text" name="phone" id="phone" value="<%= contact.phone %>" required>
+
+            <label for="address">Address</label>
+            <textarea name="address" id="address"><%= contact.address %></textarea>
+
+            <button type="submit" class="btn btn-primary">Update Contact</button>
+        </form>
+        <a href="/show-contact" class="back-link">&larr; Back to Contacts</a>
+    </div>
+</body>
+</html>

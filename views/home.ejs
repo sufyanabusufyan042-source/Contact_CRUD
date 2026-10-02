@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact App - Home</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Contact Manager</h1>
+        <p>MongoDB + Express + EJS se bana hua simple CRUD application.</p>
+        <div class="btn-group">
+            <a href="/add-contact" class="btn btn-primary">Add Contact</a>
+            <a href="/show-contact" class="btn btn-secondary">Show Contacts</a>
+        </div>
+
+        <table class="contact-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% result.docs.forEach(contact => { %>
+                    <tr>
+                        <td><%= contact.name %></td>
+                        <td><%= contact.email %></td>
+                        <td><%= contact.phone %></td>
+                        <td><%= contact.address %></td>
+                    </tr>
+                <% }) %>
+                <% if (result.docs.length === 0) { %>
+                    <tr>
+                        <td colspan="4" style="text-align:center;">No contacts found</td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+
+        <div class="pagination">
+            <% if (result.hasPrevPage) { %>
+                <a href="/?page=<%= result.prevPage %>" class="btn btn-secondary">Prev</a>
+            <% } else { %>
+                <span class="btn btn-secondary btn-disabled">Prev</span>
+            <% } %>
+
+            <% for (let i = 1; i <= result.totalPages; i++) { %>
+                <a href="/?page=<%= i %>" class="page-num <%= i === result.page ? 'active' : '' %>"><%= i %></a>
+            <% } %>
+
+            <% if (result.hasNextPage) { %>
+                <a href="/?page=<%= result.nextPage %>" class="btn btn-secondary">Next</a>
+            <% } else { %>
+                <span class="btn btn-secondary btn-disabled">Next</span>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>
